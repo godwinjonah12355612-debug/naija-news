@@ -439,3 +439,15 @@ footer{
         height: 450px;
 
        }
+        
+
+
+       /* Mobile fixes */
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+
+@media (max-width: 600px) {
+  .card img { width: 100% !important; margin-bottom: 10px; }
+  h1 { font-size: 24px !important; }
+  .card { padding: 15px; margin: 10px; }
+}
