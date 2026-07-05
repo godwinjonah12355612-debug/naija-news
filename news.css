@@ -15,8 +15,6 @@ body{
     line-height:1.6;
 }
 
-
-
 header{
     width:100%;
     background:#fff;
@@ -77,23 +75,24 @@ nav button:hover{
 }
 
 /* Hero */
-
 .hero{
     width:90%;
     margin:120px auto 60px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap: 30px;
 }
 
 .hero-text{
-    width:50%;
+    flex:1;
 }
 
 .hero-text h1{
     font-size:60px;
     color:#111;
     margin-bottom:20px;
+    line-height: 1.1;
 }
 
 .hero-text p{
@@ -117,33 +116,24 @@ nav button:hover{
 }
 
 .hero-image{
-    width:45%;
+    flex:1;
 }
 
 .hero-image img{
     width:100%;
+    max-width: 550px;
+    height: auto;
     border-radius:20px;
     animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-15px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
 }
 
 /* Sections */
-
 section{
     width:90%;
     margin:70px auto;
@@ -156,10 +146,9 @@ section h2{
 }
 
 /* Cards */
-
 .card{
     background:white;
-    padding:60px;
+    padding:40px;
     margin-bottom:25px;
     border-radius:15px;
     box-shadow:0 10px 20px rgba(0,0,0,.08);
@@ -176,10 +165,31 @@ section h2{
     text-align: center;
     font-size: 35px;
     font-weight: 700;
+    line-height: 1.2;
+}
+
+.card img{
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    margin: 20px auto;
+}
+
+.two, .three{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.two img, .three img{
+    flex: 1;
+    max-width: 48%;
 }
 
 /* Categories */
-
 #categories ul{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -188,8 +198,8 @@ section h2{
 }
 
 #categories ul li{
-    background:gray;
-    color:black;
+    background:#e3f2fd;
+    color:#111;
     text-align:center;
     padding:18px;
     border-radius:10px;
@@ -203,9 +213,8 @@ section h2{
 }
 
 /* Newsletter */
-
 .newsletter{
-    background:grey;
+    background:#2f3cf0;
     padding:60px;
     text-align:center;
     border-radius:20px;
@@ -232,28 +241,43 @@ section h2{
     padding:15px 30px;
     border:none;
     background:white;
-    color:grey;
+    color:#2f3cf0;
     border-radius:8px;
     font-weight:bold;
     cursor:pointer;
 }
 
 /* About */
-
 #about p{
     font-size:18px;
     color:#555;
 }
 
 /* Contact */
-
 #contact p{
     margin:10px 0;
     font-size:18px;
 }
 
-/* Footer */
+/* Footer tags - NO MORE ROTATION */
+.footer-tags .container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 40px 5%;
+}
 
+.tag{
+    background: #2f3cf0;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Footer */
 footer{
     background:#111827;
     color:white;
@@ -262,28 +286,70 @@ footer{
     margin-top:50px;
 }
 
-/* Responsive */
+.trending button{
+    padding:12px 25px;
+    border:none;
+    background: black;
+    color:#fff;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+    margin-top: 15px;
+}
 
-@media(max-width:768px){
-
+/* MOBILE FIXES - SINGLE MEDIA QUERY */
+@media only screen and (max-width: 768px){
+    /* Reset header */
+    header {
+        position: static;
+    }
+    
     nav{
-        flex-direction:column;
+        flex-direction: row;
+        flex-wrap: wrap;
         height:auto;
-        padding:20px 0;
+        padding:15px 5%;
+        justify-content: center;
     }
 
+    .logo {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    /* Force menu horizontal scroll */
     nav ul{
-        flex-direction:column;
-        text-align:center;
+        flex-direction:row !important;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+        padding: 10px 0;
+        gap: 20px;
+        justify-content: flex-start;
     }
 
     nav ul li{
-        margin:15px 0;
+        margin: 0 !important;
+        flex-shrink: 0;
+    }
+    
+    nav a {
+        font-size: 14px !important;
+    }
+    
+    nav button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 10px;
     }
 
+    /* Hero mobile */
     .hero{
         flex-direction:column;
         text-align:center;
+        margin: 30px auto;
     }
 
     .hero-text,
@@ -292,195 +358,91 @@ footer{
     }
 
     .hero-text h1{
-        font-size:40px;
+        font-size:32px !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-text p{
+        font-size:16px !important;
     }
 
     .hero-image{
-        margin-top:40px;
+        margin-top:30px;
     }
 
+    /* Sections */
+    section {
+        width: 95%;
+        margin: 40px auto;
+    }
+
+    section h2{
+        font-size:24px !important;
+        margin-bottom: 20px;
+    }
+
+    /* Cards mobile */
+    .card{
+        padding:20px !important;
+        margin: 15px 0 !important;
+    }
+
+    .card h3{
+        font-size:20px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .card p {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Stack images */
+    .two, .three{
+        flex-direction:column;
+        gap: 15px;
+    }
+    
+    .two img, .three img{
+        max-width: 100%;
+    }
+
+    /* Categories mobile */
     #categories ul{
         grid-template-columns:repeat(2,1fr);
+        gap: 10px;
+    }
+    
+    #categories ul li {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Newsletter mobile */
+    .newsletter{
+        padding: 30px 20px;
     }
 
     .newsletter input{
         width:100%;
-        margin-bottom:20px;
+        margin-bottom:15px;
+        margin-right: 0;
     }
 
     .newsletter button{
         width:100%;
     }
-
-}
-.card img{
-    height: auto;
-    width: 450px;
-    max-width: 100%;
-    justify-content: center;
-    display: block;
-    border-radius: 12px;
-    margin: 20px auto;
-
-}
-.two{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.three{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-}
- .band{
-    height: auto;
-    width: 450px;
-    max-width: 100%;
-    justify-content: center;
-    display: block;
-    border-radius: 12px;
-    margin: 20px auto;
-
     
- }
- .band h3{
-    color: #555;
- }
- .container{
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    gap: 50px;
-}
-.color{
-    animation: colorChange 2s infinite;
-}
-@keyframes colorChange{
-    0%{
-        background: red;
+    /* Footer tags mobile - NO ANIMATION */
+    .footer-tags .container {
+        gap: 10px;
+        padding: 20px 5%;
     }
-    50%{
-        background: blue;
-    }
-    100%{
-        background: greenyellow;
-    }
-}
-.scale{
-    animation: scaleCard 2s infinite;
-}
-    @keyframes scaleCard{
-        from{
-            transform: scale(1);
-        }
-        to{
-            transform: scale(1.3);
-        }
-
-    }
-    .rotate{
-        color: #f5f7fb;
-        background-color: #111;
-        animation: rotateCard 2s infinite;
-    }
-    @keyframes rotateCard{
-        from{
-            transform: rotate(0deg);
-        }
-        to{
-            transform: rotate(360deg);
-        }
-    }
-    .move{
-        animation: moveCard 3s infinite;
-    }
-    @keyframes moveCard{
-        from{
-            transform: translateX(0);
-        }
-        to{
-            transform: translate(20px);
-        }
-    }
-    .spin{
-        background-color: #111;
-        color: white;
-        animation: spinCard 4s linear  infinite,
-                   changeColor 8s infinite;
-
-        transition: 0.5s ease;
-        
-    }
-@keyframes spinCard{
-        0%{
-            transform: rotate(0deg);
-
-        }
-        100%{
-            transform: rotate(360deg);
-        }
-    }
-       .trending button{
-        padding:12px 25px;
-    border:none;
-    background: black;
-    color:#fff;
-    border-radius:8px;
-    cursor:pointer;
-    transition:.3s;
-       }
-       .hero-text img{
-        width: 550px;
-        height: 450px;
-
-       }
-
-
-
-       /* MOBILE FIXES - PASTE AT VERY BOTTOM */
-@media only screen and (max-width: 768px) {
-  /* Force menu horizontal */
-  header nav, nav, header ul {
-    display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    white-space: nowrap !important;
-    gap: 15px !important;
-    font-size: 13px !important;
-    padding: 8px 5px !important;
-  }
-  
-  /* Kill the huge blue headings */
-  .card h1, .card h2, h2 {
-    font-size: 18px !important;
-    line-height: 1.2 !important;
-    word-spacing: normal !important;
-  }
-  
-  /* Make all text normal size */
-  body, p {
-    font-size: 15px !important;
-    line-height: 1.4 !important;
-  }
-  
-  /* Fix card spacing */
-  .card {
-    margin: 10px 5px !important;
-    padding: 15px !important;
-  }
-  
-  /* Force images full width */
-  .card img {
-    width: 100% !important;
-    height: auto !important;
-  }
-}
-        
-
-
     
+    .tag {
+        font-size: 13px !important;
+        padding: 8px 12px !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
