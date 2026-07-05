@@ -439,47 +439,48 @@ footer{
         height: 450px;
 
        }
-        
 
 
-       @media (max-width: 600px) {
-  /* Fix the menu - horizontal scrollable */
-  nav, header ul, .menu {
+
+       /* MOBILE FIXES - PASTE AT VERY BOTTOM */
+@media only screen and (max-width: 768px) {
+  /* Force menu horizontal */
+  header nav, nav, header ul {
     display: flex !important;
     flex-direction: row !important;
     overflow-x: auto !important;
-    gap: 12px;
-    padding: 10px 5px;
-    font-size: 14px !important;
-    white-space: nowrap;
+    white-space: nowrap !important;
+    gap: 15px !important;
+    font-size: 13px !important;
+    padding: 8px 5px !important;
   }
   
-  nav a {
-    flex-shrink: 0;
+  /* Kill the huge blue headings */
+  .card h1, .card h2, h2 {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    word-spacing: normal !important;
   }
   
-  /* Fix those rotated boxes at bottom */
-  .footer-cards, .bottom-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    transform: none !important;
+  /* Make all text normal size */
+  body, p {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
   }
-  
-  .footer-cards div, .bottom-cards div {
-    transform: none !important;
-    rotate: 0deg !important;
-    position: static !important;
-    margin: 0 !important;
-  }
-  
-  /* Shrink headings more */
-  h1 { font-size: 20px !important; }
-  h2 { font-size: 18px !important; }
   
   /* Fix card spacing */
-  .card { 
-    padding: 12px !important; 
-    margin: 8px !important; 
+  .card {
+    margin: 10px 5px !important;
+    padding: 15px !important;
+  }
+  
+  /* Force images full width */
+  .card img {
+    width: 100% !important;
+    height: auto !important;
   }
 }
+        
+
+
+    
